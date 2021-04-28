@@ -35,7 +35,7 @@ CFLAGS += -mabi=$(RISCV_ABI)
 CFLAGS += -mcmodel=$(RISCV_MCMODEL)
 
 $(TARGET): $(LINK_OBJS) $(LINK_DEPS) Makefile
-	$(RISCV_GCC) $(CFLAGS) $(INCLUDES) $(LINK_OBJS) -o  $@ $(LDFLAGS)
+	$(RISCV_GCC) $(CFLAGS) $(INCLUDES) $(LINK_OBJS) vec_add.o -o  $@ $(LDFLAGS)
 	$(RISCV_OBJCOPY) -O binary  $@ $@.bin
 	$(RISCV_OBJDUMP) --disassemble-all $@ > $@.dump
 
